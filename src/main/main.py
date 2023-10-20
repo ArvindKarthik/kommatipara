@@ -5,13 +5,37 @@ from utils import filter_data, rename_columns
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import col
 
-def filter_clients(spark, clients_path, financial_path, countries):
+def main():
+    """
+    Main module for KommatiPara client data processing.
+
+    Application should recieve following three arguments as input:
+        clients_path (str): Path to the clients dataset file.
+        financial_path (str): Path to the financial details dataset file.
+        countries (str): Comma-separated list of countries to filter.
+    
+    Input:
+        client_data/dataset_one.csv client_data/dataset_two.csv "United Kingdom,Netherlands"
+    """
+
+    logging.basicConfig(level=logging.INFO)
+
+    # Initialize Spark session
+    spark = SparkSession.builder.appName("KommatiPara").getOrCreate()
+
+    # Get command line arguments
+    clients_path = sys.argv[1]
+    financial_path = sys.argv[2]
+    countries = sys.argv[3].split(',')
+
+    logging.info(f"Filtering clients from countries: {', '.join(countries)}")
+
     # Load the datasets
     clients_df = spark.read.csv(clients_path, header=True, inferSchema=True)
     financial_df = spark.read.csv(financial_path, header=True, inferSchema=True)
 
-    # Filter clients from specified countries
-    clients_df = clients_df.filter(clients_df.country.isin(countries))
+    # Use generic functions for filtering data and renaming
+    clients_df = filter_data(clients_df, "country", countries)
 
     # Remove personal identifiable information (excluding emails)
     clients_df = clients_df.drop("first_name", "last_name")
@@ -23,27 +47,13 @@ def filter_clients(spark, clients_path, financial_path, countries):
     final_df = clients_df.join(financial_df, "id")
 
     # Rename columns for readability
-    final_df = final_df.withColumnRenamed("id", "client_identifier") \
-					   .withColumnRenamed("btc_a", "bitcoin_address") \
-					   .withColumnRenamed("cc_t", "credit_card_type")
+    column_mapping = {
+        "id": "client_identifier",
+        "btc_a": "bitcoin_address",
+        "cc_t": "credit_card_type"
+    }
 
-    return final_df
-
-def main():
-    logging.basicConfig(level=logging.INFO)
-
-    # Initialize Spark session
-    spark = SparkSession.builder.appName("KommatiPara").getOrCreate()
-
-    # Get dataset path
-    clients_path = sys.argv[1]
-    financial_path = sys.argv[2]
-    countries = sys.argv[3].split(',')
-
-    logging.info(f"Filtering clients from countries: {', '.join(countries)}")
-
-    # Filter and process clients
-    final_df = filter_clients(spark, clients_path, financial_path, countries)
+    final_df = rename_columns(final_df, column_mapping)
 
     # Show the final dataset
     final_df.show()
