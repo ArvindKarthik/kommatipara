@@ -1,0 +1,33 @@
+name: Build and Test
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
+
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+        pip install .
+
+    - name: Package Source Distribution
+      run: python setup.py sdist
+
+    - name: Upload Source Distribution
+      uses: actions/upload-artifact@v2
+      with:
+        name: sdist
+        path: dist/
+
+    - name: Run Pyspark main class
+      run: python main.py client_data\dataset_one.csv client_data\dataset_two.csv  "United Kingdom,Netherlands"
