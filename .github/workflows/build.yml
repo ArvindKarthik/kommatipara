@@ -23,7 +23,7 @@ jobs:
     - name: Package Source Distribution
       run: |
         cd ..
-        python setup.py sdist
+        python https://github.com/ArvindKarthik/kommatipara/blob/d49e3cbafcabfeacb08c9b96add6e9d10f4f14ca/setup.py sdist
 
     - name: Upload Source Distribution
       uses: actions/upload-artifact@v2
