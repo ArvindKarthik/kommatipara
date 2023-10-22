@@ -1,0 +1,10 @@
+README.md
+setup.py
+src/kommatipara.egg-info/PKG-INFO
+src/kommatipara.egg-info/SOURCES.txt
+src/kommatipara.egg-info/dependency_links.txt
+src/kommatipara.egg-info/entry_points.txt
+src/kommatipara.egg-info/requires.txt
+src/kommatipara.egg-info/top_level.txt
+src/main/main.py
+src/main/utils.py

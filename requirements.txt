@@ -1,0 +1,4 @@
+# Install following libraries
+pyspark==3.3.3
+chispa
+python==3.8.18
