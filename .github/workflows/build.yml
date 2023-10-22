@@ -17,12 +17,12 @@ jobs:
 
     - name: Install dependencies
       run: |
-        cd ..
-        pip install -r requirements.txt
-        pip install .
+        pip install pyspark==3.3.3
+        pip install chispa==0.9.4
 
     - name: Package Source Distribution
-      run: python setup.py sdist
+      run: |
+        python setup.py sdist
 
     - name: Upload Source Distribution
       uses: actions/upload-artifact@v2
