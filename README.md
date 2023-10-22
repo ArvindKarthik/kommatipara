@@ -13,7 +13,7 @@ The application accepts the following command-line arguments:
 
  -  clients_file: Path to the clients dataset file.
  -  financials_file: Path to the financial details dataset file.
- -  countries: List of countries to filter clients (e.g., "UK,NL").
+ -  countries: List of countries to filter clients (e.g., "UK,NL")
 
 ### Example usage
 ```console
@@ -30,7 +30,7 @@ python path/main.py --clients_file path/dataset_one.csv --financials_file path/d
 - src/main/main.py: Main script for data processing.
 - src/main/utils.py: Utility functions for data filtering and renaming.
 - client_data/: Directory to input data and store the output data.
-- 
+
 ### Logging
 The application uses logging to provide insights into the data processing steps. Logs are saved to the logs/ directory with a rotating policy.
 
