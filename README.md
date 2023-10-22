@@ -15,7 +15,36 @@ The application accepts the following command-line arguments:
  -  financials_file: Path to the financial details dataset file.
  -  countries: List of countries to filter clients (e.g., "UK,NL").
 
-### Example usage:
+### Example usage
 ```console
 python path/main.py --clients_file path/dataset_one.csv --financials_file path/dataset_two.csv --countries United Kingdom,Netherlands
 ```
+### Installation
+- Clone this repository to your local machine.
+- Ensure you have Python 3.8 installed.
+- Install the required packages using the following command
+  ```console
+  pip install -r requirements.txt
+  ```
+### Project Structure
+- src/main/main.py: Main script for data processing.
+- src/main/utils.py: Utility functions for data filtering and renaming.
+- client_data/: Directory to input data and store the output data.
+- 
+### Logging
+The application uses logging to provide insights into the data processing steps. Logs are saved to the logs/ directory with a rotating policy.
+
+### Bonus Features
+- Packaging the code into a source distribution file.
+- log a file with a rotating policy
+- Requirement file is present
+- Documentation with docstrings using reStructuredText (reST) format.
+
+### Contributors
+ArvindKarthik Gunapiragasam arvindkarthik242@gmail.com
+
+
+
+
+
+
