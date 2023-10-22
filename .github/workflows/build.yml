@@ -20,6 +20,9 @@ jobs:
         pip install pyspark==3.3.3
         pip install chispa==0.9.4
 
+    - name: List contents of root directory
+      run: ls -l
+
     - name: Package Source Distribution
       run: |
         cd ..
