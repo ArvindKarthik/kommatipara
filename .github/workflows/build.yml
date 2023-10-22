@@ -25,8 +25,7 @@ jobs:
 
     - name: Package Source Distribution
       run: |
-        cd ..
-        python setup.py sdist
+        python C:\Personal\abn_amro_interview\Assignment\kommatipara\setup.py sdist
 
     - name: Upload Source Distribution
       uses: actions/upload-artifact@v2
