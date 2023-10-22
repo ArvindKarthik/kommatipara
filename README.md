@@ -11,9 +11,9 @@ Renames columns for improved readability to business users.
 ## Usage
 The application accepts the following command-line arguments:
 
- - ![#f03c15] clients_file: Path to the clients dataset file.
- - ![#f03c15] financials_file: Path to the financial details dataset file.
- - ![#f03c15] countries: List of countries to filter clients (e.g., "UK,NL").
+ - ! clients_file: Path to the clients dataset file.
+ - ! financials_file: Path to the financial details dataset file.
+ - ! countries: List of countries to filter clients (e.g., "UK,NL").
 
 ## Example usage:
  python path/main.py --clients_file path/dataset_one.csv --financials_file path/dataset_two.csv --countries United Kingdom,Netherlands
