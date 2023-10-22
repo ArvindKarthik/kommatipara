@@ -22,7 +22,8 @@ jobs:
 
     - name: Package Source Distribution
       run: |
-        python kommatipara/setup.py sdist
+        cd ..
+        python setup.py sdist
 
     - name: Upload Source Distribution
       uses: actions/upload-artifact@v2
