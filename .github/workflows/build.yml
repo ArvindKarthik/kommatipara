@@ -25,7 +25,7 @@ jobs:
 
     - name: Package Source Distribution
       run: |
-        python \setup.py sdist
+        python /setup.py sdist
 
     - name: Upload Source Distribution
       uses: actions/upload-artifact@v2
