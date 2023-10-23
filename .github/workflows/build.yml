@@ -15,9 +15,14 @@ jobs:
       with:
         python-version: 3.8
 
+    - name: Print a message
+      run: echo "This is a debug message."
+
+    - name: List files in directory
+      run: ls -l
+
     - name: Package Source Distribution
       run: python setup.py sdist
-      working-directory: kommatipara/
 
     - name: Upload Source Distribution
       uses: actions/upload-artifact@v2
