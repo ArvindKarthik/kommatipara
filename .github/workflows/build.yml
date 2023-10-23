@@ -17,11 +17,10 @@ jobs:
 
     - name: Print a message
       run: |
-        cd src/main/
-        echo "Working in custom directory"
-        working-directory: src/main/
+        cd $GITHUB_WORKSPACE/src/main/
+        echo "Working in the custom directory"
 
-    - name: List files in directory
+    - name: List files in the directory
       run: ls -l
 
     - name: Package Source Distribution
