@@ -16,7 +16,10 @@ jobs:
         python-version: 3.8
 
     - name: Print a message
-      run: echo "This is a debug message."
+      run: |
+        cd src/main/
+        echo "Working in custom directory"
+        working-directory: src/main/
 
     - name: List files in directory
       run: ls -l
