@@ -25,5 +25,5 @@ jobs:
 
     - name: Run command
       run: |
-        python ../client_data/dataset_one.csv ../client_data/dataset_two.csv "United Kingdom,Netherlands"
+        python ./client_data/dataset_one.csv ./client_data/dataset_two.csv "United Kingdom,Netherlands"
 
