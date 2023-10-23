@@ -36,6 +36,7 @@ The application uses logging to provide insights into the data processing steps.
 
 ### Bonus Features
 - Packaging the code into a source distribution file.
+- Project is automated with Github actions
 - log a file with a rotating policy
 - Requirement file is present
 - Documentation with docstrings using reStructuredText (reST) format.
