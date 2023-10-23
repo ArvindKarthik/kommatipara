@@ -23,12 +23,7 @@ jobs:
     - name: List contents of root directory
       run: ls -l
 
-    - name: Package Source Distribution
+    - name: Run command
       run: |
-        python ../setup.py sdist
+        python client_data/dataset_one.csv client_data/dataset_two.csv "United Kingdom,Netherlands"
 
-    - name: Upload Source Distribution
-      uses: actions/upload-artifact@v2
-      with:
-        name: sdist
-        path: dist/
