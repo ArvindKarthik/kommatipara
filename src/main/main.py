@@ -59,7 +59,7 @@ def main():
     final_df.show()
 
     # Save the final dataset as a CSV file
-    final_df.write.csv("client_data/final_dataset.csv", header=True)
+    final_df.write.mode("overwrite").csv("client_data/final_dataset.csv", header=True)
 
     # Stop the Spark session
     spark.stop()
