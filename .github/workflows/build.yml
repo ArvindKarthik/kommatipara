@@ -13,8 +13,15 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: List files in the directory
-      run: ls -l
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
+        
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+        pip install .
 
     - name: Package Source Distribution
       run: python setup.py sdist
